@@ -1,0 +1,78 @@
+{
+  "_comment": "配置示例：复制为 config.json 后按需修改。所有字段均有默认值，可省略。",
+
+  "server": {
+    "collect_port": 18765,
+    "resolve_port": 18766,
+    "host": "127.0.0.1"
+  },
+
+  "search": {
+    "_comment": "城市代码：智联 jl 参数 / BOSS city 参数",
+    "cities": [
+      {
+        "name": "长沙",
+        "zhaopin_jl": "749",
+        "boss_city": "101250100",
+        "special_area": "",
+        "_comment_special": "special_area 用于在结果中标记特定区域，如「萧山」"
+      },
+      {
+        "name": "杭州",
+        "zhaopin_jl": "653",
+        "boss_city": "101210100",
+        "special_area": "萧山"
+      }
+    ],
+    "keywords": [
+      "IT运维", "IT支持", "IT专员", "信息技术专员", "信息化专员",
+      "技术支持", "网络管理员", "信息管理员", "系统管理员",
+      "电脑维护", "桌面支持", "桌面运维", "IT服务",
+      "文员", "办公文员", "行政文员", "内勤文员",
+      "资料员", "资料管理员",
+      "行政", "综合管理", "内勤", "行政专员", "行政助理",
+      "项目助理", "办公助理"
+    ]
+  },
+
+  "judge": {
+    "_comment": "判定参数，可通过环境变量覆盖",
+    "salary_floor": 4500,
+    "exp_max": 3,
+    "education_ok": ["学历不限", "初中及以下", "中专/中技", "高中", "大专"],
+    "education_bad": ["本科", "硕士", "博士"]
+  },
+
+  "apply": {
+    "_comment": "投递节奏控制",
+    "max_apps_per_segment": 5,
+    "segment_budget_ms": 95000,
+    "rest_after_3_ms": 15000,
+    "rest_between_segments_ms": 25000,
+    "daily_limit_zhaopin": 163,
+    "daily_limit_boss": 150
+  },
+
+  "collect": {
+    "_comment": "采集节奏控制",
+    "flush_size": 5,
+    "scroll_rounds": 12,
+    "scroll_wait_ms": 1600,
+    "card_click_wait_ms": 1300
+  },
+
+  "rules": {
+    "_comment": "自定义词表，会与内置词表合并",
+    "company_blacklist": [],
+    "extra_hard_off": [],
+    "extra_bad_title": [],
+    "extra_pit_words": [],
+    "extra_jd_nature": []
+  },
+
+  "browser": {
+    "_comment": "浏览器自动化参数",
+    "viewport": { "width": 1920, "height": 911 },
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+  }
+}
