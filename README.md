@@ -96,6 +96,9 @@ python src/dashboard_generator.py
 
 ```
 .
+├── skill/
+│   ├── SKILL.md                # AI Skill：模型可读的操作手册
+│   └── README.md               # Skill 安装说明
 ├── src/
 │   ├── collect_server.py       # 落盘 HTTP 服务
 │   ├── judge_engine.py         # 判定规则引擎
@@ -112,6 +115,26 @@ python src/dashboard_generator.py
 ├── data/                       # 数据目录（.gitignore）
 └── README.md
 ```
+
+## 作为 AI Skill 使用
+
+`skill/SKILL.md` 是一份模型可读的操作手册，可直接装入支持 Skill 机制的 AI 工具，让 AI 遇到同类任务时自动按这套流程执行。
+
+```bash
+# DSH
+mkdir -p ~/.dsh/skills/job-automation-pipeline
+cp skill/SKILL.md ~/.dsh/skills/job-automation-pipeline/SKILL.md
+```
+
+详见 [skill/README.md](skill/README.md)。
+
+**三层分工**：
+
+| 载体 | 面向 | 内容 |
+|---|---|---|
+| `skill/SKILL.md` | AI | 决策依据 + 代码骨架 + 排查表（~300 行） |
+| `docs/*.md` | 人 | 完整设计说明 + 细节推导（~1000 行） |
+| `src/*` | 机器 | 可运行实现（~1500 行） |
 
 ## 数据格式
 
